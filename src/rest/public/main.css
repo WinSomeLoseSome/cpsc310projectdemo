@@ -1,0 +1,123 @@
+#container, #render, #dataset {
+    width:80%;
+    margin:auto;
+    margin-top:10px;
+    border-style:solid;
+    padding:10px;
+}
+th {
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+}
+
+th, td {
+    padding: 0 1em 0.5ex 0;
+    border-style:solid;
+    padding:10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+th.center, td.center {
+    text-align: center;
+}
+
+th.num, td.num {
+    text-align: right;
+}
+
+.axis path, .axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-family: sans-serif;
+    font-size: 11px;
+}
+
+/************************* Benton's CSS *****************************************************/
+
+a {
+    color: #EEEEEE;
+}
+
+a:focus {
+    color: #EEEEEE;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #EEEEEE;
+    text-decoration: none;
+}
+/*end of changing bootstrap default a*/
+.ubc-img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.top-bar {
+    background-color: #4DD0E1;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.5);
+}
+
+.top-bar-item {
+    margin-top: 30px;
+}
+
+.top-bar-text {
+    font-family: 'Roboto', sans-serif;
+}
+
+.title-text{
+    font-size: 32px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.small-text {
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+.side-img {
+    margin: -50px 0px 0px 100px;
+}
+
+.about {
+    padding: 100px 0px 46px 0px;
+    margin: 0px 0px 4px 0px;
+    width: 100%;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.5);
+}
+
+.banner {
+    background-color: #E0E0E0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 28px;
+    padding: 20px 0px 20px 0px;
+    position: static;
+    z-index: -1;
+}
+
+.result {
+    margin: 20px 80px 20px 80px;
+
+}
+
+.result-text {
+    font-family: 'Robot', sans-serif;
+    font-weight: 100;
+    font-size: 16px;
+}
+
+.side-by-side{
+    display: inline-block;
+}

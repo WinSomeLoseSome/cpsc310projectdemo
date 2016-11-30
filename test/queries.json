@@ -1,0 +1,167 @@
+[
+    {
+	"id" : "q0",
+	"title" : "Should be able to find sections with an average > 90",
+	"query" : {
+	    "GET": ["courses_dept", "courses_avg"],
+	    "WHERE" : {
+			"GT" : {"courses_avg" : 90}
+	    },
+	    "ORDER" : "courses_avg",
+	    "AS" : "TABLE"
+	},
+	"expected-status" : 200,
+	"expected-json-types" : "{\"result\": \"Joi.array()\", \"render\" : \"Joi.string()\"}",
+	"expected-json" : "q0.json"
+    },    
+    {
+	"id" : "q1",
+	"title" : "Should be able to find sections with an average > 70 and in the adhe department, or with a 90 average in any department",
+	"query" : {
+        "GET": ["courses_dept", "courses_id", "courses_avg"],
+        "WHERE": {
+			"OR": [
+            	{"AND": [
+					{"GT": {"courses_avg": 70}},
+					{"IS": {"courses_dept": "adhe"}}
+				]},
+                {"EQ": {"courses_avg": 90}}
+            ]
+		},
+        "ORDER": "courses_avg",
+        "AS": "TABLE"
+	},
+	"expected-status" : 200,
+	"expected-json-types" : "{\"result\": \"Joi.array()\", \"render\" : \"Joi.string()\"}",
+	"expected-json" : "q1.json"
+    },
+    {
+	"id" : "q2",
+	"title" : "Should be able to find sections of CPSC 310",
+	"query" : {
+        "GET": ["courses_dept", "courses_id", "courses_avg"],
+        "WHERE": {
+			"AND": [
+                {"IS": {"courses_dept": "cpsc"}},
+                {"IS": {"courses_id": "310"}}
+			]
+        },
+        "AS": "TABLE"
+	},
+	"expected-status" : 200,
+	"expected-json-types" : "{\"result\": \"Joi.array()\", \"render\" : \"Joi.string()\"}",
+	"expected-json" : "q2.json"
+    },
+    {
+	"id" : "q3",
+	"title" : "Should be able to find sections in CP* with average > 70 AND are not taught by Murphy, Gail OR any courses taught by Gregor",
+	"query" : {
+    	"GET": ["courses_dept", "courses_id", "courses_instructor"],
+        "WHERE": {
+			"OR": [
+            	{"AND": [
+					{"GT": {"courses_avg": 70}},
+					{"IS": {"courses_dept": "cp*"}},
+                    {"NOT": {"IS": {"courses_instructor": "murphy, gail"}}}
+                ]},
+                {"IS": {"courses_instructor": "*gregor*"}}
+			]
+	    },
+	    "AS": "TABLE"
+	},
+	"expected-status" : 200,
+	"expected-json-types" : "{\"result\": \"Joi.array()\", \"render\" : \"Joi.string()\"}",
+	"expected-json" : "q3.json"
+    },
+	{
+		"id" : "q4",
+		"title" : "Should be able to find the average for all cpsc courses",
+		"query" : {
+			"GET": ["courses_id", "courseAverage"],
+			"WHERE": {"IS": {"courses_dept": "cpsc"}} ,
+			"GROUP": [ "courses_id" ],
+			"APPLY": [ {"courseAverage": {"AVG": "courses_avg"}} ],
+			"ORDER": { "dir": "UP", "keys": ["courseAverage", "courses_id"]},
+			"AS":"TABLE"
+		},
+		"expected-status" : 200,
+		"expected-json-types" : "{\"result\": \"Joi.array()\", \"render\" : \"Joi.string()\"}",
+		"expected-json" : "q4.json"
+	},
+	{
+		"id" : "q5",
+		"title" : "Should be able to find the average for all courses in the university, sort up (hardest to easiest)",
+		"query" : {
+			"GET": ["courses_dept", "courses_id", "courseAverage", "maxFail"],
+			"WHERE": {},
+			"GROUP": [ "courses_dept", "courses_id" ],
+			"APPLY": [ {"courseAverage": {"AVG": "courses_avg"}}, {"maxFail": {"MAX": "courses_fail"}} ],
+			"ORDER": { "dir": "UP", "keys": ["courseAverage", "maxFail", "courses_dept", "courses_id"]},
+			"AS":"TABLE"
+		},
+		"expected-status" : 200,
+		"expected-json-types" : "{\"result\": \"Joi.array()\", \"render\" : \"Joi.string()\"}",
+		"expected-json" : "q5.json"
+	},
+	{
+		"id" : "q6",
+		"title" : "Should be able to find the courses offered the most times",
+		"query" : {
+			"GET": ["courses_dept", "courses_id", "numSections"],
+			"WHERE": {},
+			"GROUP": [ "courses_dept", "courses_id" ],
+			"APPLY": [ {"numSections": {"COUNT": "courses_uuid"}} ],
+			"ORDER": { "dir": "UP", "keys": ["numSections", "courses_dept", "courses_id"]},
+			"AS":"TABLE"
+		},
+		"expected-status" : 200,
+		"expected-json-types" : "{\"result\": \"Joi.array()\", \"render\" : \"Joi.string()\"}",
+		"expected-json" : "q6.json"
+	},
+	{
+		"id" : "q7",
+		"title" : "Should be able to find the rooms in DMP",
+		"query" :  {
+			"GET": ["rooms_fullname", "rooms_number"],
+			"WHERE": {"IS": {"rooms_shortname": "DMP"}},
+			"ORDER": { "dir": "UP", "keys": ["rooms_number"]},
+			"AS": "TABLE"
+		},
+		"expected-status" : 200,
+		"expected-json-types" : "{\"result\": \"Joi.array()\", \"render\" : \"Joi.string()\"}",
+		"expected-json" : "q7.json"
+	},
+	{
+		"id" : "q8",
+		"title" : "Should be able to count the number of rooms with > 160 seats in each building",
+		"query" :  {
+			"GET": ["rooms_shortname", "numRooms"],
+			"WHERE": {"GT": {"rooms_seats": 160}},
+			"GROUP": [ "rooms_shortname" ],
+			"APPLY": [ {"numRooms": {"COUNT": "rooms_name"}} ],
+			"AS": "TABLE"
+		},
+		"expected-status" : 200,
+		"expected-json-types" : "{\"result\": \"Joi.array()\", \"render\" : \"Joi.string()\"}",
+		"expected-json" : "q8.json"
+	},
+	{
+		"id" : "q9",
+		"title" : "Should be able to list rooms with moveable tables in a bounding box",
+		"query" : {
+			"GET": ["rooms_fullname", "rooms_number", "rooms_seats"],
+			"WHERE": {"AND": [
+				{"GT": {"rooms_lat": 49.261292}},
+				{"LT": {"rooms_lon": -123.245214}},
+				{"LT": {"rooms_lat": 49.262966}},
+				{"GT": {"rooms_lon": -123.249886}},
+				{"IS": {"rooms_furniture": "*Movable Tables*"}}
+			]},
+			"ORDER": { "dir": "UP", "keys": ["rooms_number"]},
+			"AS": "TABLE"
+		},
+		"expected-status" : 200,
+		"expected-json-types" : "{\"result\": \"Joi.array()\", \"render\" : \"Joi.string()\"}",
+		"expected-json" : "q9.json"
+	}
+]

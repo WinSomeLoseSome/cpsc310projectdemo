@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>course schedule</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="./public/bootstrap.min.css">
+    <link rel="stylesheet" href="./public/main.css">
+    <script src="./public/jquery.min.js"></script>
+    <script src="./public/bootstrap.min.js"></script>
+    <script src="./public/d3.min.js"></script>
+    <script src="./public/main.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <!--<script src="./public/schedule.js"></script>-->
+    <script src="./public/schedule_new.js"></script>
+</head> <body>
+<div class = "row top-bar">
+    <!-- logo image -->
+    <div class = "col-xs-3">
+        <img class = "img-responsive center-block ubc-img"
+             src = "http://www.ugrad.cs.ubc.ca/~cs314/Vsep2016/img/ubc_logo.png" height= "55" width = "55">
+    </div>
+    <!-- Spacer on left to -->
+    <div class = "col-xs-1 center-block top-bar-item">
+        <p class = "lead text-center top-bar-text"><a href="./index.html">Home</a></p>
+    </div>
+    <div class = "col-xs-2 center-block top-bar-item">
+        <p class = "lead text-center top-bar-text"><a href="./coursesQuery.html">Find Courses</a></p>
+    </div>
+    <div class = "col-xs-1 center-block top-bar-item">
+        <p class = "lead text-center top-bar-text"><a href="./uploadDataset.html">Upload</a></p>
+    </div>
+    <div class = "col-xs-2 center-block top-bar-item">
+        <p class = "lead text-center top-bar-text"><a href="./roomsQuery.html">Find Rooms</a></p>
+    </div>
+    <div class = "col-xs-2 center-block top-bar-item">
+        <p class = "lead text-center top-bar-text"><a href="./schedule.html">Schedule Classes</a></p>
+    </div>
+    <!-- Spacer on right to -->
+    <div class = "col-xs-1"></div>
+</div>
+<!-- end of top bar -->
+<div class = "container">
+<h3 class="lead">Room Scheduling:</h3>
+<form id="scheduleQuery">
+    <div class="form-group">
+        <label for="schedDepartment">Department:</label>
+        <input type="text" class="form-control" placeholder = "Department" id="schedDepartment">
+        <br>
+        <label for="schedCourseNumber">Course Number:</label>
+        <input type="text" class="form-control" placeholder = "Course Number" id="schedCourseNumber">
+        <br>
+        <label for="schedBuildingName">Building Name</label>
+        <input type="text" class="form-control" placeholder="Building Name" id="schedBuildingName">
+        <br>
+        <label for="schedLocation">Find all rooms near building:</label>
+        <input type="text" class="form-control" placeholder="Distance (meters)" id="schedLocation">
+    </div>
+    <button type="submit" class="btn btn-primary">Make Schedule</button>
+</form>
+
+<table class="table" id="schedTable">
+    <thead id="schedTableHead"></thead>
+</table>
+
+    <div id = "showSched"></div>
+
+</div>
+
+</div>
+</body>
+</html>

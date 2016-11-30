@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="./public/bootstrap.min.css">
+    <link rel="stylesheet" href="./public/main.css">
+    <script src="./public/jquery.min.js"></script>
+    <script src="./public/bootstrap.min.js"></script>
+    <script src="./public/d3.min.js"></script>
+    <script src="./public/main.js"></script>
+    <script src="./public/makeQueryCourses.js"></script>
+    <script src="./public/makeQueryRooms.js"></script>
+    <script src="./public/schedule.js"></script>
+
+</head>
+<html>
+<body>
+<div class = "row top-bar">
+    <!-- logo image -->
+    <div class = "col-xs-3">
+        <img class = "img-responsive center-block ubc-img"
+             src = "http://www.ugrad.cs.ubc.ca/~cs314/Vsep2016/img/ubc_logo.png" height= "55" width = "55">
+    </div>
+    <!-- Spacer on left to -->
+    <div class = "col-xs-1 center-block top-bar-item">
+        <p class = "lead text-center top-bar-text"><a href="./index.html">Home</a></p>
+    </div>
+    <div class = "col-xs-2 center-block top-bar-item">
+        <p class = "lead text-center top-bar-text"><a href="./coursesQuery.html">Find Courses</a></p>
+    </div>
+    <div class = "col-xs-1 center-block top-bar-item">
+        <p class = "lead text-center top-bar-text"><a href="./uploadDataset.html">Upload</a></p>
+    </div>
+    <div class = "col-xs-2 center-block top-bar-item">
+        <p class = "lead text-center top-bar-text"><a href="./roomsQuery.html">Find Rooms</a></p>
+    </div>
+    <div class = "col-xs-2 center-block top-bar-item">
+        <p class = "lead text-center top-bar-text"><a href="./schedule.html">Schedule Classes</a></p>
+    </div>
+    <!-- Spacer on right to -->
+    <div class = "col-xs-1"></div>
+</div>
+<!-- end of top bar -->
+
+<div class="container">
+
+    <h3 class = "lead">Search for Rooms at UBC:</h3>
+
+    <form id="roomsQuerySubmit">
+        <div class ="form-group">
+            <label for="findBuildingName">Building Name</label>
+            <input type="text" class="form-control" placeholder="Building Name" id="findBuildingName">
+            <br>
+            <label for="findLocation">Find all rooms near building:</label>
+            <input type="text" class="form-control" placeholder="Distance (meters)" id="findLocation">
+            <br>
+            <label for="findRoomNumber">Room Number</label>
+            <input type="text" class="form-control" placeholder="Room Number" id="findRoomNumber">
+            <br>
+            <label for="findRoomSizeMax">Max Room Size</label>
+            <input type="text" class="form-control" placeholder="Room Size" id="findRoomSizeMax">
+            <br>
+            <label for="findRoomSizeMin">Min Room Size</label>
+            <input type="text" class="form-control" placeholder="Room Size" id="findRoomSizeMin">
+            <br>
+            <label for="findRoomType">Room Type</label>
+            <input type="text" class="form-control" placeholder="Room Type" id="findRoomType">
+            <br>
+            <label for="moveTable">Furniture Type: </label><br>
+            <label><input type="radio" name ="movableTable" id = "moveTable">Movable Tables</label>
+            <label><input type="radio" name ="movableTable" id = "fixTable">Fixed Position Tables</label><br>
+            <label><input type="radio" name ="movableChair" id = "moveChair">Movable Chairs</label>
+            <label><input type="radio" name ="movableChair" id = "fixChair">Fixed Position Chair</label>
+            <br>
+
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    <br>
+    <br>
+    <h3 class = "lead">Search Results:</h3>
+    <table class="table-striped" id="resultTable">
+        <thead id="resultHead"></thead>
+    </table>
+</div>
+
+
+</body>
+</html>
