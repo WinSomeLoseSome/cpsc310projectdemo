@@ -1,0 +1,14 @@
+Benton Robertson
+
+Hard Contributions
+
+- tests
+
+I worked on the parser, and was in the process of working to understand
+the JSON and iterating through it when my partner (Carey) loaded a ~85%
+done D3. I then created a function for lat lon and was working on wiring
+the Promises for it when Carey uploaded a 100% D3. I have local history
+of my work but few commits because before I could upload a non-breaking
+commit Carey uploaded his answers. I talked to Reid and he said the best
+thing I could do is write tests, which I did. I also got a small head 
+start on D4.
