@@ -2,7 +2,7 @@
  * Created by rtholmes on 17-08-2016.
  */
 
-import Server from '../../cpsc310project/src/rest/Server';
+import Server from '../../cpsc310projectdemo/src/rest/Server';
 import {QueryRequest} from "../src/controller/QueryController";
 
 import Log from "../src/Util";
