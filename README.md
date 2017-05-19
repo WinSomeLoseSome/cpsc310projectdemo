@@ -1,5 +1,7 @@
 # CPSC 310 Project Repository
 
+A project completed in 2016 for UBC's CPSC 310 Software Engineering class. This was the end product of the class and is a website with the ability to search for classes and rooms at UBC and schedule specific classes to rooms.
+
 ## Configuring your environment
 
 To start using this project you need to get your computer configured so you can build and execute the code. This process should be largely similar to the ```cpsc310starter``` repo used during the first lab. To do this, follow these steps; the specifics of each step (especially the first two) will vary based on which operating system your computer has:
