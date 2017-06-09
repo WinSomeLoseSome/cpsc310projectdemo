@@ -1,3 +1,4 @@
+\graphicspath{ {images/} }
 # CPSC 310 Project Repository
 
 A project completed in 2016 for UBC's CPSC 310 Software Engineering class. This was the end product of the class and is a website with the ability to search for classes and rooms at UBC and schedule specific classes to rooms.
