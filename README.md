@@ -35,4 +35,4 @@ If you use Windows; instead try:
 
 You can then open the sample UI in your web browser by visiting [http://localhost:4321](http://localhost:4321). Alternatively, you can invoke the server using curl or some other tool that can hit your REST endpoints once the server is started.
 
-![alt text](cpsc310projectdemo/img/Screen Shot 2017-05-18 at 9.27.15 PM.png)
+![alt text](https://raw.githubusercontent.com/WinSomeLoseSome/cpsc310projectdemo/master/img/Screen Shot 2017-05-18 at 9.27.15 PM.png)
