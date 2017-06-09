@@ -1,4 +1,3 @@
-\usepackage{graphicx}
 # CPSC 310 Project Repository
 
 A project completed in 2016 for UBC's CPSC 310 Software Engineering class. This was the end product of the class and is a website with the ability to search for classes and rooms at UBC and schedule specific classes to rooms.
@@ -36,8 +35,4 @@ If you use Windows; instead try:
 
 You can then open the sample UI in your web browser by visiting [http://localhost:4321](http://localhost:4321). Alternatively, you can invoke the server using curl or some other tool that can hit your REST endpoints once the server is started.
 
-\begin{figure}
-  \caption{The Upload Page.}
-  \centering
-    \includegraphics[width=0.5\textwidth]{img/Screen Shot 2017-05-18 at 9.27.15 PM}
-\end{figure}
+![alt text](img/Screen Shot 2017-05-18 at 9.27.15 PM)
